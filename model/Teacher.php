@@ -45,4 +45,9 @@ class Teacher extends Person
     {
         $this->experience = $experience;
     }
+
+    public function isEmptyData()
+    {
+        return parent::isEmptyData() || empty($this->nrp) || empty($this->experience);
+    }
 }

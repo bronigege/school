@@ -17,7 +17,12 @@ class Student extends Person
      */
     public function setSchoolYear($schoolYear)
     {
-        $this->schoolYear = $schoolYear;
+        if ($this->schoolYear != $schoolYear) {
+            $this->schoolYear = $schoolYear;
+            return true;
+        } else {
+            return false;
+        }
     }
 
     /**
@@ -26,5 +31,10 @@ class Student extends Person
     public function getSchoolYear()
     {
         return $this->schoolYear;
+    }
+
+    public function isEmptyData()
+    {
+        return parent::isEmptyData() || empty($this->schoolYear);
     }
 }

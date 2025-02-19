@@ -68,4 +68,9 @@ class Person
     {
         return $this->name . ' ' . $this->surname;
     }
+
+    public function isEmptyData()
+    {
+        return empty($this->name) || empty($this->surname) || empty($this->email);
+    }
 }
