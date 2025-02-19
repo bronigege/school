@@ -1,0 +1,19 @@
+RewriteEngine on
+RewriteCond %{SERVER_PORT} 80
+
+# Asegurarte de que estás usando HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-l
+
+
+RewriteRule ^(.+)\.css$ $1.css [L]
+RewriteRule ^(.+)\.png$ $1.png [L]
+RewriteRule ^(.+)\.jpg$ $1.jpg [L]
+RewriteRule ^(.+)\.js$ $1.js [L]
+
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^(.*\.(zip|pdf|doc|docx|xls|xlsx|ppt|pptx|txt|rar|tar|gz|7z|mp3|mp4|avi|mov|mkv))$ $1 [L]

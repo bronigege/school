@@ -1,0 +1,12 @@
+services:
+  app:
+    container_name: school_app
+    build:
+      context: .
+      dockerfile: .docker/Dockerfile
+    image: school_app
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "8889:80"
+      - "8443:443"
